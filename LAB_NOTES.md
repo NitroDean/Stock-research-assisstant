@@ -17,7 +17,6 @@ How a local AI assistant can combine US-company reports, dated market informatio
 
 The 2026 Form 10-K, PDF page 29, reports $478,834 million for 2026 and $416,161 million for 2025. The assistant's answer should cite that page. This is a historical filing comparison, not a current recommendation to buy or sell.
 
-## Still needed from the team
+## Optional next step for the broader topic
 
-- A team member must sign in to GitHub and push this local commit to the public repository. The code is ready; the repository is currently empty.
-- For the full research topic, add a current, dated market snapshot and a news PDF that you are allowed to use. The four loaded PDFs meet the lab's 4-5 PDF count, but they do not provide live prices or independent news.
+The code is published in the public GitHub repository. To extend the research beyond company filings, add a current, dated market snapshot and a financial news PDF you are allowed to use. The four loaded PDFs meet the lab's 4-5 PDF count, but they do not provide live prices or independent news.
