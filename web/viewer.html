@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF viewer · Stock Research Assistant</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="viewer-shell">
+    <header class="viewer-header">
+      <a href="/" class="back">← Back to assistant</a>
+      <div><span class="eyebrow">SOURCE DOCUMENT</span><h1 id="file-name">Loading PDF…</h1></div>
+      <a id="original-link" class="original" href="#" download>Download original PDF</a>
+    </header>
+    <div class="viewer-controls">
+      <button id="previous" type="button">Previous page</button>
+      <span id="page-label">Page 1</span>
+      <button id="next" type="button">Next page</button>
+    </div>
+    <div class="page-frame"><img id="page-image" alt="PDF page"></div>
+    <p id="viewer-error" class="status error"></p>
+  </div>
+  <script src="/viewer.js"></script>
+</body>
+</html>
