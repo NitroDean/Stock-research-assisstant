@@ -35,9 +35,9 @@ If you uploaded documents before installing `nomic-embed-text`, run `.venv/bin/p
 
 The assistant uses uploaded PDFs only. It distinguishes document evidence from uncertainty and cannot determine a live buy or sell price without a current, dated market source. Review every cited page before relying on a conclusion.
 
-## Publish the code
+## Share the demo with teammates
 
-This project is configured with the team's GitHub repository as `origin`. After signing in to GitHub on the computer that will publish it, run `git push -u origin main` from this folder. The downloaded demo ZIP includes the local Git commit. The four loaded sample PDFs and SQLite index are in `data/`, which is intentionally excluded from the public repository; teammates can run `.venv/bin/python download_sample_pdfs.py` to load the same official filings.
+The code is published in the team's GitHub repository. The four loaded sample PDFs and SQLite index are in `data/`, which is intentionally excluded from the public repository. Teammates can run `.venv/bin/python download_sample_pdfs.py` to load the same official filings after setting up Ollama.
 
 ## Lab requirements
 
@@ -48,3 +48,4 @@ This project is configured with the team's GitHub repository as `origin`. After 
 ## How it works
 
 The server extracts text from each PDF page with `pypdf`, splits long pages into overlapping passages, and stores them in SQLite. It requests `nomic-embed-text` embeddings from Ollama in batches. Search combines vector similarity with keyword overlap; if embeddings are unavailable, keyword search still works. Up to eight passages are sent to `qwen3:1.7b` with instructions to ground claims in the supplied passages and cite their numbers. The model may take time on difficult questions; chat requests have a 240-second Ollama timeout.
+
