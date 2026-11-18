@@ -48,10 +48,22 @@ function setStatus(message, isError = false) {
   status.classList.toggle("error", isError);
 }
 
+function cleanAssistantText(text) {
+  return text.replace(/\r\n?/g, "\n")
+    .replace(/(^|\n)[ \t]{0,3}#{1,6}[ \t]+/g, "$1")
+    .replace(/(^|\n)([ \t]*)\*[ \t]+/g, "$1$2• ")
+    .replace(/\*\*\*([^*\n]+)\*\*\*/g, "$1")
+    .replace(/\*\*([^*\n]+)\*\*/g, "$1")
+    .replace(/__([^_\n]+)__/g, "$1")
+    .replace(/(^|[\s([{\"'])\*([A-Za-z0-9](?:[^*\n]*?[A-Za-z0-9])?)\*(?=$|[\s.,!?;:)\]])/g, "$1$2")
+    .replace(/\x60([^\x60\n]+)\x60/g, "$1");
+}
+
 function addMessage(role, body, sources = []) {
   const wrapper = document.createElement("div"); wrapper.className = `message ${role}`;
   const bubble = document.createElement("div"); bubble.className = "bubble";
-  bubble.textContent = body; wrapper.append(bubble);
+  bubble.textContent = role === "assistant" ? cleanAssistantText(body) : body;
+  wrapper.append(bubble);
   if (sources.length) {
     const list = document.createElement("ul"); list.className = "source-list";
     sources.forEach((source) => {
