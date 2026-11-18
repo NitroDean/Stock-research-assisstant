@@ -209,7 +209,7 @@ def answer(db, question):
         "Copy financial numbers exactly from the relevant table and check the year column before answering. "
         "Do not invent prices, dates, news, or a guaranteed buy/sell signal. "
         "A buy or sell discussion should identify conditions to monitor, not promise returns. "
-        "Keep the response concise and readable."
+        "Keep the response concise and readable. Use plain text, not Markdown: no asterisks, hash headings, or formatting symbols. Simple sentences and numbered lists are fine."
     )
     result = ollama("/api/chat", {"model": CHAT_MODEL, "stream": False, "think": False,
         "messages": [{"role": "system", "content": system},
